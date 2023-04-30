@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="main_color">#234E70</color> <!--234E70-->
+    <color name="main_variant">#113A5A</color>
+    <color name="secondary_color">#FFFAA9</color> <!--FFF990-->
+    <color name="secondary_variant">#F8F6D1</color>
+    <color name="user_background_color">#143D60</color>
+    <color name="transparent">#00AAAAAA</color>
+    <color name="red">#FF0000</color>
+    <color name="mtrl_textinput_default_box_stroke_color">@color/main_color</color>
+    <color name="game_dialog_color">#A59D24</color>
+
+</resources>

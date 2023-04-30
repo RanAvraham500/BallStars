@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Ball Stars</string>
+    <string-array name="index_to_skin_names" >
+        <item>Bright Blue</item>
+        <item>Bright Red</item>
+        <item>Bright Green</item>
+        <item>Pink</item>
+        <item>Bright Orange</item>
+        <item>Yellow</item>
+        <item>Blue</item>
+        <item>Red</item>
+        <item>Green</item>
+        <item>Purple</item>
+        <item>Orange</item>
+        <item>White</item>
+        <item>Gray</item>
+        <item>Black</item>
+        <item>Football</item>
+        <item>BasketBall</item>
+        <item>Among Us</item>
+        <item>Seal</item>
+        <item>Sami the Fireman</item>
+        <item>Israel</item>
+        <item>Troll</item>
+        <item>Andrew Tate</item>
+        <item>Yummi</item>
+        <item>Hasbulla</item>
+        <item>Ski Bi Di Dub</item>
+    </string-array>
+
+    <string-array name="level_names">
+        <item>Coins</item>
+        <item>Maze</item>
+    </string-array>
+
+    <string name="info_sign_in">
+        Click the sign in tab to sign in to your account.\n
+        There you must enter your valid email address, and your valid password.\n
+        You will be notified if there are any errors.
+    </string>
+
+    <string name="info_sign_up">
+        Click the sign up tab to start the account creation process.\nThere you will enter a valid email address - it will be your key, your desired username, a secure password and confirm it.\n
+        A secured password means that it must be at least six characters long, must have at least one number, symbol, lowercase and uppercase
+    </string>
+
+    <string name="info_navigation">
+        This activity is the navigation center of the app.\n
+        From this activity you can pick your level and start a new game, buy new ball skins from the shop, manage your friends, see the leaderboard and edit your own user settings.
+    </string>
+    <string name="info_game">
+        There are two levels to choose from: Coins and Maze.\n
+        \n
+        Coins: \n
+        In this level your goal is to collect as many coins as possible, in 60 seconds. Coins will start to appear on your screen and you can try and collect the with your character (rotate the phone).\n
+        Bombs and clocks will also spawn on your screen and will have an affect on your remaining time: Bombs will reduce five seconds from your time and clocks will add five seconds.\n
+        \n
+        Maze:\n
+        In this level your goal is to continue as far as you can. A randomly generated will be drawn on your screen and you will have to navigate through it trying not to hit the edges.
+    </string>
+</resources>

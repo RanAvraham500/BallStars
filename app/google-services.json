@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1057778178526",
+    "project_id": "ball-stars-68130",
+    "storage_bucket": "ball-stars-68130.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1057778178526:android:f2ba615fd58782bc97e54f",
+        "android_client_info": {
+          "package_name": "com.example.ballstars"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1057778178526-8equk2og02c7e15rqkrqjp90bd7lq90l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7tE3q8MIi2SCtAIVQ92y5aietH1lPCSE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1057778178526-8equk2og02c7e15rqkrqjp90bd7lq90l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

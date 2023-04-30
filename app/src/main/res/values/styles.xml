@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="custom_edittext" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox">
+        <item name="android:textColorHint">@color/main_color</item>
+        <item name="android:textColor">@color/main_color</item>
+        <item name="boxStrokeWidth">1dp</item>
+        <item name="endIconTint">@color/main_color</item>
+        <item name="boxBackgroundMode">outline</item>
+        <item name="helperTextTextColor">@color/main_color</item>
+        <item name="counterTextColor">@color/main_color</item>
+        <item name="boxStrokeColor">@color/main_color</item>
+        <item name="errorTextColor">@color/red</item>
+        <item name="boxStrokeErrorColor">@color/red</item>
+        <item name="errorIconTint">@color/red</item>
+        <item name="helperText">" "</item>
+    </style>
+
+    <style name="custom_toggle_button" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="android:textColor">@color/main_color</item>
+        <item name="android:textSize">20sp</item>
+        <item name="strokeColor">@color/main_color</item>
+        <item name="rippleColor">@color/secondary_color</item>
+    </style>
+</resources>

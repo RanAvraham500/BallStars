@@ -1,0 +1,744 @@
+@startuml
+class com.example.ballstars.dialogs.settings.SettingsDialog {
+- {static} String TAG
+- User user
+- CustomView<ImageButton> btnBackgroundMusic
+- SeekBar sbBackgroundMusic
+- boolean backgroundMusicEnabled
+- int backgroundMusicVolume
+- ViewGroup dialogLayout
+- TextView tvBackgroundMusicVolume
++ <<Create>> SettingsDialog()
++ <<Create>> SettingsDialog(User)
++ {static} SettingsDialog display(FragmentManager,User)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void saveData()
++ void setUpSettingsButtons()
++ void onClick(View)
+- void addDisabledIconLayer(ImageButton)
+- void closeAlert()
+- void preformSnackBar(String)
++ void onProgressChanged(SeekBar,int,boolean)
++ void onStartTrackingTouch(SeekBar)
++ void onStopTrackingTouch(SeekBar)
+}
+class com.example.ballstars.game.GameEffects {
+- Context context
+- SoundPool onCollisionSoundPool
+- int coinSoundId
+- boolean gameSoundsEffectsEnabled
+- float gameSoundsEffectsVolume
++ <<Create>> GameEffects(Context,Settings)
++ void updateUserSettings(Settings)
++ void playStartSound()
++ void playCollisionSound(Obstacle.ObstacleType)
+- void playSound(int)
+- void vibrate()
++ void destroy()
+}
+class com.example.ballstars.registration.SignInFragment {
+- CustomEditText etEmail
++ <<Create>> SignInFragment()
++ {static} SignInFragment newInstance()
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- boolean checkData()
++ void sendData()
+}
+class com.example.ballstars.dialogs.settings.Settings {
+- boolean backgroundMusicEnabled
+- float backgroundMusicVolume
+- boolean gameSoundEffectsEnabled
+- float gameSoundEffectsVolume
+- boolean vibrationEnabled
++ <<Create>> Settings()
++ boolean isBackgroundMusicEnabled()
++ void setBackgroundMusicEnabled(boolean)
++ float getBackgroundMusicVolume()
++ void setBackgroundMusicVolume(float)
++ boolean isGameSoundEffectsEnabled()
++ void setGameSoundEffectsEnabled(boolean)
++ float getGameSoundEffectsVolume()
++ void setGameSoundEffectsVolume(float)
++ boolean isVibrationEnabled()
++ void setVibrationEnabled(boolean)
+}
+class com.example.ballstars.service.BallStarsService {
+- MediaPlayer backgroundMusicPlayer
++ void onCreate()
++ int onStartCommand(Intent,int,int)
++ void onDestroy()
++ IBinder onBind(Intent)
+}
+class com.example.ballstars.CustomView {
+- T mView
+- Animation animClick
+- boolean visible
++ <<Create>> CustomView(T)
++ <<Create>> CustomView(Activity,T,View.OnClickListener)
++ void disappear()
++ void show()
++ T getView()
++ boolean isView(View)
++ boolean onTouch(View,MotionEvent)
+}
+class com.example.ballstars.registration.SignUpFragment {
+- CustomEditText etEmail
++ <<Create>> SignUpFragment()
++ {static} SignUpFragment newInstance()
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- boolean checkData()
++ void sendData()
+}
+interface com.example.ballstars.OnFragmentChangeListener {
+~ void onFragmentChange(Fragment)
+}
+class com.example.ballstars.dialogs.GameDialog {
+- {static} String TAG
+- CommunicateWithFirebase firebase
+- LinearLayout dialogLayout
+- TextView tvGameState
+- CustomView<ImageButton> btnBackgroundMusic
+- CustomView<AppCompatButton> btnResume
+- GameDialogType type
+- BallSurfaceView customSurfaceView
+- User user
+- boolean backgroundMusicEnabled
++ <<Create>> GameDialog()
++ <<Create>> GameDialog(GameDialogType,BallSurfaceView,User)
++ {static} GameDialog display(FragmentManager,GameDialogType,BallSurfaceView,User)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void setUpSettingsButtons()
++ void onClick(View)
++ void addDisabledIconLayer(ImageButton)
++ void preformSnackBar(String)
++ void onResume()
++ void onDismiss(DialogInterface)
+}
+enum com.example.ballstars.dialogs.GameDialogType {
++  PAUSE
++  END
+}
+class com.example.ballstars.home.levels_fr.CustomViewPager {
+- ViewPager2 mViewPager2
+- String[] levelNames
++ <<Create>> CustomViewPager(ViewPager2,Activity)
++ void setOnPageChangeCallback(ViewPager2.OnPageChangeCallback)
++ int getCurrIndex()
++ String getDisplayedLevel()
++ void showNext()
++ void showPrev()
+}
+class com.example.ballstars.home.levels_fr.CustomViewPager.ViewPager2Adapter {
+- Activity activity
+- String[] levelNames
++ <<Create>> ViewPager2Adapter(Activity,String[])
++ ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(ViewHolder,int)
++ int getItemCount()
+}
+class com.example.ballstars.home.levels_fr.CustomViewPager.ViewPager2Adapter.ViewHolder {
+~ CustomView<TextView> tvLevel
++ <<Create>> ViewHolder(View)
+}
+class com.example.ballstars.home.store_fr.StoreFragment {
+- CustomView<TextView> tvSkinName
+- CustomView<AppCompatButton> btnSelectSkin
+- SkinsRecyclerView recyclerview
+- String[] indexToSkinName
+- int[] indexToSkinPrice
+- int i
+- OnFragmentChangeListener onFragmentChangeListener
+- User user
+- ArrayList<Integer> availableSkins
+- CommunicateWithFirebase firebase
++ {static} int[] indexToSkinId
++ <<Create>> StoreFragment()
++ <<Create>> StoreFragment(OnFragmentChangeListener,User)
++ {static} StoreFragment newInstance(OnFragmentChangeListener,User)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void onSnapChange(int)
++ void onClick(View)
+}
+class com.example.ballstars.game.maze.FPoint {
+~ float x
+~ float y
++ <<Create>> FPoint(float,float)
+}
+class com.example.ballstars.game.GameActivity {
+- User user
+- BallSurfaceView customSurfaceView
+- GameEffects gameEffects
+# void onCreate(Bundle)
++ void onGameFinish()
++ void onClick(View)
+# void onDestroy()
+}
+abstract class com.example.ballstars.TranslateSensorValue {
+- SensorManager sensorManager
+# boolean on
+# float x
++ <<Create>> TranslateSensorValue(Activity,float,float)
++ void onSensorChanged(SensorEvent)
++ {abstract}void translatedSensorData()
+- void handleSensorData(float,float)
++ float getX()
++ float getY()
++ void onAccuracyChanged(Sensor,int)
++ void register()
++ void unregister()
+}
+class com.example.ballstars.routing.RoutingActivity {
+# void onCreate(Bundle)
+}
+class com.example.ballstars.home.HomeNavigationActivity {
+- DrawerLayout mDrawer
+- NavigationView nvDrawer
+- CustomView<ImageButton> btnUserNav
+- CommunicateWithFirebase firebase
+- User user
+# void onCreate(Bundle)
+- ImageButton setUpDrawerButton(int)
+- void setupDrawerContent()
+- void selectDrawerItem(MenuItem)
++ void onClick(View)
++ void onFragmentChange(Fragment)
+}
+class com.example.ballstars.home.levels_fr.LevelsFragment {
+- CustomView<ImageButton> btnPrev
+- CustomView<AppCompatButton> btnSelectLevel
+- CustomViewPager vpLevels
+- OnFragmentChangeListener onFragmentChangeListener
+- User user
++ <<Create>> LevelsFragment()
++ <<Create>> LevelsFragment(OnFragmentChangeListener,User)
++ {static} LevelsFragment newInstance(OnFragmentChangeListener,User)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void updateUI()
++ void onClick(View)
+}
+class com.example.ballstars.game.coins.CoinsSurfaceView {
+- Activity activity
+- Paint clockPaint
+- CopyOnWriteArrayList<Obstacle> obstacles
+- int score
++ <<Create>> CoinsSurfaceView(Activity,int,GameEffects)
+- void setUpPaints()
+# void drawGame(Canvas)
+- boolean checkCollision(Obstacle)
+- float distance(float,float)
+- void drawObstacle(Obstacle,Canvas)
+# void drawText(Canvas)
++ void restart()
++ int getScore()
++ void onSecondTickClock(String)
++ void onFinishClock()
++ void onCollisionCoin()
++ void onCollisionBomb()
++ void onCollisionTime()
+}
+class com.example.ballstars.MoveAccordingToSensors {
+- View mView
++ <<Create>> MoveAccordingToSensors(View,Activity,float,float)
++ void translatedSensorData()
+}
+class com.example.ballstars.dialogs.InfoDialog {
+- {static} String TAG
+- InfoDialogType type
++ <<Create>> InfoDialog()
++ <<Create>> InfoDialog(InfoDialogType)
++ {static} InfoDialog display(FragmentManager,InfoDialogType)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+enum com.example.ballstars.dialogs.InfoDialogType {
++  REGISTRATION
++  HOME
+}
+class com.example.ballstars.dialogs.leaderboard.LeaderboardRecyclerView {
+- LeaderboardRVAdapter adapter
++ <<Create>> LeaderboardRecyclerView(Activity,RecyclerView,ArrayList<LeaderboardPlace>)
++ void updateLeaderboard(ArrayList<LeaderboardPlace>)
+}
+class com.example.ballstars.dialogs.leaderboard.LeaderboardRecyclerView.LeaderboardRVAdapter {
+- Activity activity
+- ArrayList<LeaderboardPlace> leaderboard
++ <<Create>> LeaderboardRVAdapter(Activity,ArrayList<LeaderboardPlace>)
++ void setLeaderboard(ArrayList<LeaderboardPlace>)
++ LeaderboardRecyclerView.LeaderboardRVAdapter.ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(LeaderboardRecyclerView.LeaderboardRVAdapter.ViewHolder,int)
++ int getItemCount()
+}
+class com.example.ballstars.dialogs.leaderboard.LeaderboardRecyclerView.LeaderboardRVAdapter.ViewHolder {
+- TextView tvUserPlace
++ <<Create>> ViewHolder(View)
+}
+class com.example.ballstars.dialogs.leaderboard.LeaderboardRecyclerView.SpacingItemDecoration {
+- int ITEM_SPACING
+- int FIRST_SPACING
+- int LAST_SPACING
++ <<Create>> SpacingItemDecoration()
++ void getItemOffsets(Rect,View,RecyclerView,RecyclerView.State)
+}
+class com.example.ballstars.ReplaceFragment {
++ {static} void init(FragmentManager,Fragment)
+}
+class com.example.ballstars.registration.CustomEditText {
+- TextInputLayout mTextInputLayout
+- TextInputEditText mTextInputEditText
+- int minimumCharacters
++ <<Create>> CustomEditText(TextInputLayout,TextInputEditText)
++ String getText()
++ void setMinimumCharacters(int)
++ void setError(String)
++ boolean setError(CheckString.PasswordErrorCode)
++ void beforeTextChanged(CharSequence,int,int,int)
+- void setCounterTextColor(int)
++ void onTextChanged(CharSequence,int,int,int)
++ void afterTextChanged(Editable)
+}
+class com.example.ballstars.game.maze.MazeSurfaceView {
++ {static} float TICK
++ {static} int SPACING
++ {static} float LENGTH
+- int MAX_Y
+- Paint mazePaint
+- CopyOnWriteArrayList<TrapezeHelper> trapezeHelpers
++ <<Create>> MazeSurfaceView(Activity,int,GameEffects)
+- float randomY()
+# void drawGame(Canvas)
+- void addNew(FPoint)
+- boolean checkIfInBounds(TrapezeHelper)
+# void drawText(Canvas)
++ void restart()
++ int getScore()
++ void onSecondTickClock(String)
++ void onFinishClock()
+}
+abstract class com.example.ballstars.game.BallSurfaceView {
+- SurfaceHolder holder
+- Canvas canvas
+# OnGameFinishListener listener
+- boolean running
+# boolean gameOn
+# Ball ball
+# float SCREEN_TOP
+# float ballX
+- Bitmap ballBitmap
+- Handler handler
+- GameClock preGameCountDown
+- String preGameTime
+# GameClock gameClock
+# String gameTime
+- boolean isCountDownDone
+# Paint clockTextPaint
+# GameEffects gameEffects
++ <<Create>> BallSurfaceView(Activity,int,GameEffects)
++ void run()
++ void onCordChange(float,float)
+# {abstract}void drawGame(Canvas)
+# {abstract}void drawText(Canvas)
+- void drawPreGameClock()
+- void drawBall()
++ void surfaceCreated(SurfaceHolder)
++ void surfaceChanged(SurfaceHolder,int,int,int)
++ void surfaceDestroyed(SurfaceHolder)
++ void pause()
++ void resume()
++ void restart()
++ {abstract}int getScore()
++ void updateGameEffects(Settings)
+}
+interface com.example.ballstars.game.BallSurfaceView.OnGameFinishListener {
+~ void onGameFinish()
+}
+class com.example.ballstars.game.GameClock {
+- ScheduledExecutorService exec
+- ClockListener listener
+- boolean running
+- int START_TIME
+- int seconds
+- int minutes
+- <<Create>> GameClock(ClockListener)
+- <<Create>> GameClock(ClockListener,int)
++ {static} GameClock createTimer(ClockListener,int)
++ {static} GameClock createStopwatch(ClockListener)
++ void run()
++ void updateOnCollision(int)
++ void start()
++ void pause()
++ void resume()
++ void reset()
++ void finish()
+- String getCurrentTime()
++ int translateToScore()
+}
+interface com.example.ballstars.game.GameClock.ClockListener {
+~ void onSecondTickClock(String)
+~ void onFinishClock()
+}
+class com.example.ballstars.firebase.HighScore {
+- int coins
+- int maze
++ <<Create>> HighScore()
++ <<Create>> HighScore(int,int)
++ int getCoins()
++ void setCoins(int)
++ int getMaze()
++ void setMaze(int)
+}
+class com.example.ballstars.game.coins.Obstacle {
+- ObstacleType type
+- OnCollisionActions collisionActions
+- Bitmap obstacleBitmap
++ {static} float OBSTACLE_RADIUS
+- float millisTTL
++ {static} float frameWidth
+- float obstacleX
+- double COIN_PER
++ <<Create>> Obstacle(Activity,OnCollisionActions)
+- ObstacleType randomType()
+- float randomX()
+- float randomY()
++ boolean reduceTTL(float)
++ void onCollision()
++ Bitmap getBitmap()
++ float getX()
++ float getY()
++ ObstacleType getType()
+}
+enum com.example.ballstars.game.coins.ObstacleType {
++  COIN
++  BOMB
++  TIME
+}
+interface com.example.ballstars.game.coins.Obstacle.OnCollisionActions {
+~ void onCollisionCoin()
+~ void onCollisionBomb()
+~ void onCollisionTime()
+}
+class com.example.ballstars.firebase.CommunicateWithFirebase {
+- FirebaseAuth mAuth
+- FirebaseFirestore mDB
++ {static} String COINS_PATH
+- Activity activity
+- FragmentManager fragmentManager
++ <<Create>> CommunicateWithFirebase(Activity,FragmentManager)
++ void signIn(String,String)
++ void signUp(String,String,String)
++ void signOut()
++ boolean ifLoggedUser()
++ void goToActivity(Class<?>,User)
++ void updateUser(User,LoadingDialog.OnLoadingFinishedListener)
++ void updateCoinsHighScore(int,LoadingDialog.OnLoadingFinishedListener,User)
++ void updateMazeHighScore(int,LoadingDialog.OnLoadingFinishedListener,User)
++ Map<String,Integer> castMap(Map<?,?>)
++ LinkedHashMap<String,Integer> sortMap(LinkedHashMap<String,Integer>)
++ ArrayList<LeaderboardPlace> castToLeaderboardArray(LinkedHashMap<String,Integer>)
++ DocumentReference getUserDocumentFromDB()
++ DocumentReference getLeaderboardDocumentFromDB(String)
++ void DBFailed(LoadingDialog,String)
+- void createSnackBar(String)
+}
+class com.example.ballstars.dialogs.LoadingDialog {
+- {static} String TAG
+- CustomView<TextView> tvLoadingMessage
+- CustomView<ProgressBar> pbLoading
+- CustomView<ImageView> ivSuccess
++ <<Create>> LoadingDialog()
++ {static} LoadingDialog display(FragmentManager)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void success(OnLoadingFinishedListener)
++ void failure()
++ void onResume()
+}
+interface com.example.ballstars.dialogs.LoadingDialog.OnLoadingFinishedListener {
+~ void onLoadingFinished()
+}
+class com.example.ballstars.registration.RegistrationActivity {
+- String EMAIL_KEY
+- SignInFragment signInFragment
+- SignUpFragment signUpFragment
+- LinearLayout llWelcome
+- CustomView<AppCompatButton> btnContinue
+- CustomView<ImageButton> btnInfo
+- MoveAccordingToSensors moveAccordingToSensors
+- boolean sensorStarted
+- CommunicateWithFirebase firebase
+# void onCreate(Bundle)
++ void onClick(View)
++ void onFragmentResult(String,Bundle)
++ void onTabSelected(TabLayout.Tab)
++ void onTabUnselected(TabLayout.Tab)
++ void onTabReselected(TabLayout.Tab)
+- void handleOnTabSelected(TabLayout.Tab)
+# void onStart()
+# void onStop()
+}
+class com.example.ballstars.game.maze.TrapezeHelper {
+- FPoint point1
+- FPoint point2
+- FPoint tempPoint
+- RectF allowedRectF
+- Path allowedPath
++ {static} float yPortion
++ float newSpacing
++ <<Create>> TrapezeHelper(FPoint,FPoint)
++ void advanceTemp()
++ void updateRectF()
++ FPoint getPoint1()
++ FPoint getPoint2()
++ FPoint getTempPoint()
++ Path getAllowedPath()
++ RectF getAllowedRectF()
++ boolean isDone()
++ boolean isUp()
+}
+class com.example.ballstars.firebase.User {
+- String email
+- String username
+- int money
+- HighScore highScore
+- ArrayList<Integer> availableSkins
+- int chosenSkin
+- String chosenLevel
+- Settings userSettings
++ <<Create>> User()
++ <<Create>> User(String,String)
++ String getEmail()
++ void setEmail(String)
++ String getUsername()
++ void setUsername(String)
++ int getMoney()
++ void setMoney(int)
++ HighScore getHighScore()
++ void setHighScore(HighScore)
++ ArrayList<Integer> getAvailableSkins()
++ void setAvailableSkins(ArrayList<Integer>)
++ int getChosenSkin()
++ void setChosenSkin(int)
++ String getChosenLevel()
++ void setChosenLevel(String)
++ Settings getUserSettings()
++ void setUserSettings(Settings)
+}
+class com.example.ballstars.registration.CheckString {
++ {static} boolean checkEmail(CustomEditText)
++ {static} boolean checkUserName(CustomEditText)
++ {static} boolean checkPassword(CustomEditText)
+- {static} PasswordErrorCode getPasswordErrorCode(String)
++ {static} boolean checkConfirmPassword(CustomEditText,String)
+}
+enum com.example.ballstars.registration.PasswordErrorCode {
++  PASSWORD_TOO_SHORT
++  PASSWORD_NO_LOWER_CASE
++  PASSWORD_NO_UPPER_CASE
++  PASSWORD_NO_NUMBER
++  PASSWORD_NO_SYMBOL
++  PASSWORD_NO_ERROR
+}
+class com.example.ballstars.home.store_fr.SkinsRecyclerView {
+- Context context
+- RecyclerView mRecyclerView
+- SkinsRVAdapter adapter
+- Drawable[] skinDrawables
+- SnapHelper snapHelper
+- OnSnapChangeListener mOnSnapChangeListener
+- ArrayList<Integer> availableSkins
++ <<Create>> SkinsRecyclerView(Activity,RecyclerView,OnSnapChangeListener,ArrayList<Integer>)
+- void setUpDrawableArr()
+- int getSnapPosition(SnapHelper)
+- void setUpRecyclerView()
++ void buyOnIndex(int)
+}
+class com.example.ballstars.home.store_fr.SkinsRecyclerView.SkinsRVAdapter {
+- Context context
+- Drawable[] skinDrawables
+- Drawable[] updatedSkinDrawables
+- Drawable lockIcon
+- ArrayList<Integer> availableSkins
++ <<Create>> SkinsRVAdapter(Context,Drawable[],Drawable,ArrayList<Integer>)
++ void buyOnIndex(int)
+- void setUpSkinDrawablesLocked()
++ ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(SkinsRVAdapter.ViewHolder,int)
++ int getItemCount()
+}
+class com.example.ballstars.home.store_fr.SkinsRecyclerView.SkinsRVAdapter.ViewHolder {
+- ImageView ivSkin
++ <<Create>> ViewHolder(View)
+}
+class com.example.ballstars.home.store_fr.SkinsRecyclerView.HorizontalSpacingItemDecoration {
+- int ITEM_SPACING
+- int FIRST_AND_LAST_SPACING
++ <<Create>> HorizontalSpacingItemDecoration()
++ void getItemOffsets(Rect,View,RecyclerView,RecyclerView.State)
+}
+class com.example.ballstars.home.store_fr.SkinsRecyclerView.ScaleItemLayoutManager {
+- float SHRINK_AMOUNT
+- float SHRINK_DISTANCE
++ <<Create>> ScaleItemLayoutManager(Context,int,boolean)
+- void scaleMiddleItem()
++ void onLayoutCompleted(RecyclerView.State)
++ int scrollHorizontallyBy(int,RecyclerView.Recycler,RecyclerView.State)
+}
+interface com.example.ballstars.home.store_fr.SkinsRecyclerView.OnSnapChangeListener {
+~ void onSnapChange(int)
+}
+class com.example.ballstars.dialogs.leaderboard.LeaderboardDialog {
+- {static} String TAG
+- User user
+- View view
+- CommunicateWithFirebase firebase
+- ViewStub viewStub
+- TextView tvPersonalPlace
+- MaterialButtonToggleGroup btgLeaderboard
+- LeaderboardRecyclerView recyclerView
+- ArrayList<LeaderboardPlace> leaderboardCoins
+- LoadingDialog loadingDialog
+- boolean oneQueryFinished
+- int userCoinsPlace
++ <<Create>> LeaderboardDialog()
++ <<Create>> LeaderboardDialog(User)
++ {static} LeaderboardDialog display(FragmentManager,User)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void firstLoadUp()
+- void refreshLeaderboard()
+- int getUserCoinsPlace()
+- int getUserMazePlace()
+- void setUpCoinsLeaderboard(LoadingDialog.OnLoadingFinishedListener)
+- void setUpMazeLeaderboard(LoadingDialog.OnLoadingFinishedListener)
+- void setUpViewStub()
+- void setUpViewStubText()
++ void onButtonChecked(MaterialButtonToggleGroup,int,boolean)
+}
+class com.example.ballstars.home.home_fr.HomeFragment {
+- CustomView<AppCompatButton> btnPlay
+- CustomView<ImageButton> btnGoStore
+- CustomView<TextView> tvHeadline
+- CustomView<ImageView> ivCircleBackground
+- OnFragmentChangeListener onFragmentChangeListener
+- User user
+- CommunicateWithFirebase firebase
+- int skinId
+- String levelName
++ <<Create>> HomeFragment()
++ <<Create>> HomeFragment(OnFragmentChangeListener,User)
++ {static} HomeFragment newInstance(OnFragmentChangeListener,User)
++ void onCreate(Bundle)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void setStoreButtonSkinBitmap()
+- void setLevelButtonName()
+- void disappearAllViewsButCircle()
+- void startGoToGameAnimation()
++ void scheduledIntent()
++ void onClick(View)
+}
+class com.example.ballstars.game.Ball {
+- Bitmap ballBitmap
+- CordsListener cordsListener
+- float START_X
++ {static} float RADIUS
+- boolean firstTime
++ <<Create>> Ball(Activity,int,CordsListener,float,float)
++ void start()
++ void resume()
++ void pause()
++ void reset()
++ Bitmap getBallBitmap()
++ void translatedSensorData()
+}
+interface com.example.ballstars.game.Ball.CordsListener {
+~ void onCordChange(float,float)
+}
+class com.example.ballstars.dialogs.leaderboard.LeaderboardPlace {
+- String email
+- int score
++ <<Create>> LeaderboardPlace(String,int)
++ String getEmail()
++ void setEmail(String)
++ int getScore()
++ void setScore(int)
+}
+
+
+com.example.ballstars.dialogs.settings.OnClickListener <|.. com.example.ballstars.dialogs.settings.SettingsDialog
+com.example.ballstars.dialogs.settings.OnSeekBarChangeListener <|.. com.example.ballstars.dialogs.settings.SettingsDialog
+androidx.fragment.app.DialogFragment <|-- com.example.ballstars.dialogs.settings.SettingsDialog
+androidx.fragment.app.Fragment <|-- com.example.ballstars.registration.SignInFragment
+java.io.Serializable <|.. com.example.ballstars.dialogs.settings.Settings
+android.app.Service <|-- com.example.ballstars.service.BallStarsService
+com.example.ballstars.OnTouchListener <|.. com.example.ballstars.CustomView
+androidx.fragment.app.Fragment <|-- com.example.ballstars.registration.SignUpFragment
+com.example.ballstars.dialogs.OnClickListener <|.. com.example.ballstars.dialogs.GameDialog
+androidx.fragment.app.DialogFragment <|-- com.example.ballstars.dialogs.GameDialog
+com.example.ballstars.home.levels_fr.CustomViewPager +.. com.example.ballstars.home.levels_fr.CustomViewPager.ViewPager2Adapter
+com.example.ballstars.home.levels_fr.Adapter <|-- com.example.ballstars.home.levels_fr.CustomViewPager.ViewPager2Adapter
+com.example.ballstars.home.levels_fr.CustomViewPager.ViewPager2Adapter +.. com.example.ballstars.home.levels_fr.CustomViewPager.ViewPager2Adapter.ViewHolder
+com.example.ballstars.home.levels_fr.ViewHolder <|-- com.example.ballstars.home.levels_fr.CustomViewPager.ViewPager2Adapter.ViewHolder
+com.example.ballstars.home.store_fr.OnSnapChangeListener <|.. com.example.ballstars.home.store_fr.StoreFragment
+com.example.ballstars.home.store_fr.OnClickListener <|.. com.example.ballstars.home.store_fr.StoreFragment
+androidx.fragment.app.Fragment <|-- com.example.ballstars.home.store_fr.StoreFragment
+com.example.ballstars.game.OnGameFinishListener <|.. com.example.ballstars.game.GameActivity
+com.example.ballstars.game.OnClickListener <|.. com.example.ballstars.game.GameActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.ballstars.game.GameActivity
+android.hardware.SensorEventListener <|.. com.example.ballstars.TranslateSensorValue
+androidx.appcompat.app.AppCompatActivity <|-- com.example.ballstars.routing.RoutingActivity
+com.example.ballstars.home.OnClickListener <|.. com.example.ballstars.home.HomeNavigationActivity
+com.example.ballstars.OnFragmentChangeListener <|.. com.example.ballstars.home.HomeNavigationActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.ballstars.home.HomeNavigationActivity
+com.example.ballstars.home.levels_fr.OnClickListener <|.. com.example.ballstars.home.levels_fr.LevelsFragment
+androidx.fragment.app.Fragment <|-- com.example.ballstars.home.levels_fr.LevelsFragment
+com.example.ballstars.game.coins.ClockListener <|.. com.example.ballstars.game.coins.CoinsSurfaceView
+com.example.ballstars.game.coins.OnCollisionActions <|.. com.example.ballstars.game.coins.CoinsSurfaceView
+com.example.ballstars.game.BallSurfaceView <|-- com.example.ballstars.game.coins.CoinsSurfaceView
+com.example.ballstars.TranslateSensorValue <|-- com.example.ballstars.MoveAccordingToSensors
+androidx.fragment.app.DialogFragment <|-- com.example.ballstars.dialogs.InfoDialog
+com.example.ballstars.dialogs.leaderboard.LeaderboardRecyclerView +.. com.example.ballstars.dialogs.leaderboard.LeaderboardRecyclerView.LeaderboardRVAdapter
+com.example.ballstars.dialogs.leaderboard.Adapter <|-- com.example.ballstars.dialogs.leaderboard.LeaderboardRecyclerView.LeaderboardRVAdapter
+com.example.ballstars.dialogs.leaderboard.LeaderboardRecyclerView.LeaderboardRVAdapter +.. com.example.ballstars.dialogs.leaderboard.LeaderboardRecyclerView.LeaderboardRVAdapter.ViewHolder
+com.example.ballstars.dialogs.leaderboard.ViewHolder <|-- com.example.ballstars.dialogs.leaderboard.LeaderboardRecyclerView.LeaderboardRVAdapter.ViewHolder
+com.example.ballstars.dialogs.leaderboard.LeaderboardRecyclerView +.. com.example.ballstars.dialogs.leaderboard.LeaderboardRecyclerView.SpacingItemDecoration
+com.example.ballstars.dialogs.leaderboard.ItemDecoration <|-- com.example.ballstars.dialogs.leaderboard.LeaderboardRecyclerView.SpacingItemDecoration
+android.text.TextWatcher <|.. com.example.ballstars.registration.CustomEditText
+com.example.ballstars.game.maze.ClockListener <|.. com.example.ballstars.game.maze.MazeSurfaceView
+com.example.ballstars.game.BallSurfaceView <|-- com.example.ballstars.game.maze.MazeSurfaceView
+com.example.ballstars.game.CordsListener <|.. com.example.ballstars.game.BallSurfaceView
+com.example.ballstars.game.Runnable <|.. com.example.ballstars.game.BallSurfaceView
+com.example.ballstars.game.Callback <|.. com.example.ballstars.game.BallSurfaceView
+android.view.SurfaceView <|-- com.example.ballstars.game.BallSurfaceView
+com.example.ballstars.game.BallSurfaceView +.. com.example.ballstars.game.BallSurfaceView.OnGameFinishListener
+com.example.ballstars.game.Runnable <|.. com.example.ballstars.game.GameClock
+com.example.ballstars.game.GameClock +.. com.example.ballstars.game.GameClock.ClockListener
+java.io.Serializable <|.. com.example.ballstars.firebase.HighScore
+com.example.ballstars.game.coins.Obstacle +.. com.example.ballstars.game.coins.Obstacle.OnCollisionActions
+androidx.fragment.app.DialogFragment <|-- com.example.ballstars.dialogs.LoadingDialog
+com.example.ballstars.dialogs.LoadingDialog +.. com.example.ballstars.dialogs.LoadingDialog.OnLoadingFinishedListener
+com.example.ballstars.registration.OnTabSelectedListener <|.. com.example.ballstars.registration.RegistrationActivity
+com.example.ballstars.registration.OnClickListener <|.. com.example.ballstars.registration.RegistrationActivity
+androidx.fragment.app.FragmentResultListener <|.. com.example.ballstars.registration.RegistrationActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.ballstars.registration.RegistrationActivity
+java.io.Serializable <|.. com.example.ballstars.firebase.User
+com.example.ballstars.home.store_fr.SkinsRecyclerView +.. com.example.ballstars.home.store_fr.SkinsRecyclerView.SkinsRVAdapter
+com.example.ballstars.home.store_fr.Adapter <|-- com.example.ballstars.home.store_fr.SkinsRecyclerView.SkinsRVAdapter
+com.example.ballstars.home.store_fr.SkinsRecyclerView.SkinsRVAdapter +.. com.example.ballstars.home.store_fr.SkinsRecyclerView.SkinsRVAdapter.ViewHolder
+com.example.ballstars.home.store_fr.ViewHolder <|-- com.example.ballstars.home.store_fr.SkinsRecyclerView.SkinsRVAdapter.ViewHolder
+com.example.ballstars.home.store_fr.SkinsRecyclerView +.. com.example.ballstars.home.store_fr.SkinsRecyclerView.HorizontalSpacingItemDecoration
+com.example.ballstars.home.store_fr.ItemDecoration <|-- com.example.ballstars.home.store_fr.SkinsRecyclerView.HorizontalSpacingItemDecoration
+com.example.ballstars.home.store_fr.SkinsRecyclerView +.. com.example.ballstars.home.store_fr.SkinsRecyclerView.ScaleItemLayoutManager
+com.example.ballstars.home.store_fr.LinearLayoutManager <|-- com.example.ballstars.home.store_fr.SkinsRecyclerView.ScaleItemLayoutManager
+com.example.ballstars.home.store_fr.SkinsRecyclerView +.. com.example.ballstars.home.store_fr.SkinsRecyclerView.OnSnapChangeListener
+com.example.ballstars.dialogs.leaderboard.OnButtonCheckedListener <|.. com.example.ballstars.dialogs.leaderboard.LeaderboardDialog
+androidx.fragment.app.DialogFragment <|-- com.example.ballstars.dialogs.leaderboard.LeaderboardDialog
+com.example.ballstars.home.home_fr.OnClickListener <|.. com.example.ballstars.home.home_fr.HomeFragment
+androidx.fragment.app.Fragment <|-- com.example.ballstars.home.home_fr.HomeFragment
+com.example.ballstars.TranslateSensorValue <|-- com.example.ballstars.game.Ball
+com.example.ballstars.game.Ball +.. com.example.ballstars.game.Ball.CordsListener
+@enduml

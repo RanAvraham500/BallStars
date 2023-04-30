@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource"
+    android:background="@color/white"
+    android:id="@+id/dialogLayout">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingEnd="16dp"
+            android:paddingStart="6dp"
+            app:contentInsetStartWithNavigation="0dp"
+            app:navigationIcon="@drawable/close_icon"
+            android:background="@color/main_color"
+            app:titleTextColor="@color/white"
+            />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="30dp"
+            android:orientation="horizontal">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <ImageButton
+                    android:id="@+id/btnBackgroundMusic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/setting_seekbar_height"
+                    android:src="@drawable/music_icon"
+                    android:background="@drawable/button_bg"
+                    android:scaleType="fitCenter"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+                <ImageButton
+                    android:id="@+id/btnSoundEffects"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/setting_seekbar_height"
+                    android:src="@drawable/game_icon"
+                    android:background="@drawable/button_bg"
+                    android:scaleType="fitCenter"
+                    android:padding="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    />
+
+
+                <ImageButton
+                    android:id="@+id/btnVibration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/setting_seekbar_height"
+                    android:background="@drawable/button_bg"
+                    android:src="@drawable/vibration_icon"
+                    android:scaleType="fitCenter"
+                    android:padding="10dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="5">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_seekbar_height"
+                    android:background="@drawable/button_bg"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:paddingHorizontal="5dp">
+                    <TextView
+                        android:id="@+id/tvBackgroundMusicVolume"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="100"
+                        android:textColor="@color/secondary_color"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+                    <SeekBar
+                        android:id="@+id/sbBackgroundMusic"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="11"
+                        android:max="100"
+                        />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/setting_seekbar_height"
+                    android:background="@drawable/button_bg"
+                    android:orientation="horizontal"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:paddingHorizontal="5dp">
+                    <TextView
+                        android:id="@+id/tvSoundEffectsVolume"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="100"
+                        android:textColor="@color/secondary_color"
+                        android:textSize="15sp"
+                        android:textStyle="bold"/>
+                    <SeekBar
+                        android:id="@+id/sbSoundEffects"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="11"
+                        android:max="100"
+                        />
+                </LinearLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

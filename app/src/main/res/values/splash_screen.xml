@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.AppCompat.SplashScreen" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/black</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/splash_screen_icon_animation</item>
+        <item name="postSplashScreenTheme">@style/Theme.BallStars</item>
+        <item name="android:windowSplashScreenBrandingImage" tools:targetApi="s">@drawable/splash_screen_bottom_title_layers</item>
+    </style>
+</resources>

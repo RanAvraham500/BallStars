@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingDefaultResource"
+    android:background="@color/main_color"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:weightSum="5"
+    android:baselineAligned="false"
+    android:id="@+id/llRegistration">
+
+    <LinearLayout
+        android:id="@+id/llWelcome"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:gravity="center">
+        <LinearLayout
+            android:id="@+id/llGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center">
+            <TextView
+                android:id="@+id/tvWelcome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Welcome!"
+                android:textColor="@color/secondary_color"
+                android:textSize="40sp"
+                />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btnContinue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Continue"
+                    android:background="@drawable/button_bg"
+                    android:textColor="@color/secondary_color"
+                    android:layout_gravity="center" />
+                <ImageButton
+                    android:id="@+id/btnInfo"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_bg"
+                    android:src="@drawable/info_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/llContent"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:weightSum="7"
+        android:background="@drawable/login_box_bg"
+        android:orientation="vertical"
+        android:layout_margin="15dp"
+        >
+
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/tableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/table_layout_bg"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="@color/main_color"
+            app:tabMaxWidth="0dp"
+            app:tabMode="fixed"
+            app:tabRippleColor="@color/transparent"
+            app:tabTextColor="@color/main_color"/>
+        <FrameLayout
+            android:id="@+id/flContent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6"
+            android:orientation="vertical">
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

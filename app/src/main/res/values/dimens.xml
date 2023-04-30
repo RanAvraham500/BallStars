@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="arrow_size">75dp</dimen>
+    <dimen name="arrow_off_set">30dp</dimen>
+    <dimen name="edittext_bottom">5dp</dimen>
+    <item name="edittext_weight" format="float" type="integer">1.2</item>
+    <item name="button_weight" format="float" type="integer">0.4</item>
+    <dimen name="setting_seekbar_height">60dp</dimen>
+</resources>

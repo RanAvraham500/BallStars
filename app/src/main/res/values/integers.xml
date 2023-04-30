@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="regular_skin_price">50</integer>
+    <integer name="semi_special_skin_price">250</integer>
+    <integer name="special_skin_price">500</integer>
+    <integer-array name="index_to_skin_price">
+        <item>@integer/regular_skin_price</item> <!--Bright Blue-->
+        <item>@integer/regular_skin_price</item> <!--Bright Red-->
+        <item>@integer/regular_skin_price</item> <!--Bright Green-->
+        <item>@integer/regular_skin_price</item> <!--Pink-->
+        <item>@integer/regular_skin_price</item> <!--Bright Orange-->
+        <item>@integer/regular_skin_price</item> <!--Yellow-->
+        <item>@integer/regular_skin_price</item> <!--Blue-->
+        <item>@integer/regular_skin_price</item> <!--Red-->
+        <item>@integer/regular_skin_price</item> <!--Green-->
+        <item>@integer/regular_skin_price</item> <!--Purple-->
+        <item>@integer/regular_skin_price</item> <!--Orange-->
+        <item>@integer/regular_skin_price</item> <!--White-->
+        <item>@integer/regular_skin_price</item> <!--Gray-->
+        <item>@integer/regular_skin_price</item> <!--Black-->
+        <item>@integer/semi_special_skin_price</item> <!--Football-->
+        <item>@integer/semi_special_skin_price</item> <!--BasketBall-->
+        <item>@integer/special_skin_price</item> <!--Among Us-->
+        <item>@integer/special_skin_price</item> <!--Seal-->
+        <item>@integer/special_skin_price</item> <!--Sami the Fireman-->
+        <item>@integer/special_skin_price</item> <!--Israel-->
+        <item>@integer/special_skin_price</item> <!--Troll-->
+        <item>@integer/special_skin_price</item> <!--Andrew Tate-->
+        <item>@integer/special_skin_price</item> <!--Yummi-->
+        <item>@integer/special_skin_price</item> <!--Hasbulla-->
+        <item>@integer/special_skin_price</item> <!--Ski Bi Di Dub-->
+    </integer-array>
+</resources>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:ignore="MissingDefaultResource"
+    android:orientation="horizontal"
+    android:background="@color/transparent">
+    <TextView
+        android:id="@+id/tvUserPlace"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="1"
+        android:textColor="@color/secondary_color"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:background="@drawable/leaderboard_place_bg2"/>
+    <LinearLayout
+        android:id="@+id/llHolder"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="7"
+        android:orientation="horizontal"
+        android:background="@drawable/leaderboard_place_bg1"
+        android:padding="20dp">
+        <TextView
+            android:id="@+id/tvUserEmail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="9"
+            android:text="r@gmail.com"
+            android:textColor="@color/secondary_color"
+            android:textSize="17sp" />
+
+        <TextView
+            android:id="@+id/tvUserScore"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="111"
+            android:textColor="@color/secondary_color"
+            android:textSize="17sp"
+            android:gravity="end"/>
+    </LinearLayout>
+
+</LinearLayout>
